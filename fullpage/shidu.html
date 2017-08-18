@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>北京网站建设公司|北京网站制作公司|北京网站建设|北京网站制作-十度创想</title>
+		<link rel="icon" href="img/logososo.jpg">
+		<link rel="stylesheet" type="text/css" href="css/shidu.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<script src="js/jquery-1.8.3.min.js"></script>
+		<script src="js/jquery.fullPage.min.js"></script>
+		<script>
+			$(function() {
+				//第二瓶动画
+				$(".con2_dl dt img").hover(function() {
+						$(this).parents("dl").find("#tblue").show().stop().animate({
+							"top": '0px'
+						}, 700, function() {
+							$(this).parents("dl").find("dd").css("color", 'white');
+						});
+						$(this).stop().animate({
+							"top": '-165px'
+						}, 800);
+					}, function() {
+						$(this).parents("dl").find("#tblue").stop().animate({
+							"top": '400px'
+						}, 700, function() {
+							$(this).parents("dl").find("dd").css("color", '');
+							$(this).hide();
+						});
+						$(this).stop().animate({
+							"top": '0px'
+						}, 800);
+					})
+				//第三屏动画
+				$(".con3_dl dl").hover(function(){
+					$(this).find("#zz").stop().animate({"top":'0px'},800);
+					$(this).find("#cblue").stop().animate({"top":'158px'},800);
+					$(this).find("dd,span").css("color",'white');
+				},function(){
+					$(this).find("#zz").stop().animate({"top":'-160px'},700);
+					$(this).find("#cblue").stop().animate({"top":'200px'},700);
+					$(this).find("dd,span").css("color",'');
+				})
+				//第7屏动画
+				$(".con7_ul li").hover(function(){
+					var a=$(this).val();
+					if (a==0) {
+						$(this).css("z-index",'4').find("div").stop().animate({"opacity":'1',"left":'200px'},800);
+					} else{
+						$(this).css("z-index",'4').find("div").stop().animate({"opacity":'1',"left":'-200%'},800);
+					}
+					$(this).find("img").addClass("ss");
+				},function(){
+					var a=$(this).val();
+					if (a==0) {
+						$(this).css("z-index",'').find("div").stop().animate({"opacity":'0',"left":'0px'},800);
+					} else{
+						$(this).css("z-index",'').find("div").stop().animate({"opacity":'0',"left":'-100%'},800);
+					}
+					$(this).find("img").removeClass("ss");
+				})
+				//第8屏动画
+				$(".sec82 a").hover(function(){
+					$(this).stop().animate({"width":"200px"},500);
+				},function(){
+					$(this).stop().animate({"width":"150px"},1000);
+				})
+				//right fiexd
+				$(".zixun img").hover(function() {
+						$(this).stop().animate({
+							"left": '-120px',
+							"background":'rgba(0,0,0,0.5)'
+						}, 1000);
+					}, function() {
+						$(this).stop().animate({
+							"left": '',
+							"background":''
+						}, 2000);
+					})
+					//返回顶部
+				
+				var i = 1;
+				function img() {
+					$("#img img").eq(i).stop().addClass("bg")
+						.animate({
+							"opacity": '1'
+						}, 1000).siblings().animate({
+							"opacity": '0'
+						}, 400).removeClass("bg");
+					i++;
+					if(i == 3) {
+						i = 0;
+					}
+				}
+				setInterval(img, 4000);
+				//插件动画
+				$("#box").delay(300).fullpage({
+					afterLoad: function(link, index) {
+						anchors: ['page1', 'page2', 'page3', 'page4', 'page5', 'page6', 'page7', 'page8', 'page9'],
+						menu,"#menu";
+						$("#navmenu li").eq(index-1).addClass("bt").siblings().removeClass("bt");
+						$("#menu li").eq(index-1).addClass("active").siblings().removeClass("active");
+						if(index!=1){
+							$(".nav").stop().animate({"margin-top":'0px'},300);
+							$(".w").stop().animate({"margin-top":'0px'},300);
+							$(".header").addClass("bc");
+						}else{
+							$(".nav").stop().animate({"margin-top":'20px'},300);
+							$(".w").stop().animate({"margin-top":'20px'},300);
+							$(".header").removeClass("bc");
+						}
+						if(index == 2) {
+							$(".con2 h2").css("color","#009FDE").eq(0).addClass("cc");
+							$(".con2 h3 img").stop().animate({
+								"width": '600px',
+								"height": '50px',
+								"opacity":'1'
+							}, 1000);
+							
+						}
+						if(index == 3) {
+							$(".con3 h2").eq(0).css("color","#009FDE").addClass("cc");
+							$(".con3 h3 img").stop().animate({
+								"width": '600px',
+								"height": '50px'
+							}, 1000);
+							for (var i=0;i<8;i++) {
+								$(".con3_dl dl").delay(200).eq(i).animate({"opacity":'1',"top":'0px'},1000);
+							}
+						}
+						if(index == 4) {
+							$(".con4_ul ul li:nth-child(even) img").stop().animate({"opacity":'1',"bottom":'0px'},1000);
+							$(".con4 h2").eq(0).addClass("cc").css("color",'black');
+							$(".con4 h3").eq(0).css("color","#009FDE").addClass("fc");
+							$(".con4_ul li:nth-child(odd) img").stop().animate({"opacity":'1',"top":'0px'},1000);
+
+						}
+						if (index==5) {
+							document.getElementsByClassName("mp4").item(0).play();
+							$(".wid h2").addClass("cc");
+							$(".con5_ul").css({"width":'0px',"height":'0px'}).animate({"width":'800px',"height":'550px'},1000);
+						}
+						if (index==6) {
+							$(".con6 h2").eq(0).addClass("cc");
+							for (var i=0;i<6;i++) {
+								$(".cf li").delay(200).eq(i).stop().animate({"opacity":'1',"bottom":'50px'},1000)
+							}
+						}
+						if (index==7) {
+							$(".con7 h2").eq(0).addClass("cc");
+							for (var i=0;i<18;i++) {
+								$(".con7_ul li img").delay(200).eq(i).animate({"opacity":'1'},1000);
+							}
+						}
+						if (index==8) {
+							$(".wid h2").css("color",'white').addClass("cc");
+							$(".wid h3").css("color",'white').addClass("fc");
+							var a=$(".sec8 p").length;
+							for (var i=0;i<a;i++) {
+								$(".sec8 p").delay(1000).eq(i).stop()
+								.animate({"opacity":'1',"font-size":'16px',"margin-top":'20px'},1000);
+							}
+						}
+						if(index==9){
+							$(".left").stop().animate({"left":'-100px'},1000);
+							$(".right").stop().animate({"left":'40%'},1000);
+						}
+						$("#top").click(function() {
+						$("body,html").stop().animate({
+							"scrollTop": 0
+						}, 300);
+							index=1;		
+						});
+					},
+					onLeave: function(index, direction) {
+						if(index!=1){
+							
+						}
+						if(index == '2') {
+							$(".con2 h2").eq(0).removeClass("cc");
+							$(".con2 h3 img").stop().animate({
+								"width": '50px',
+								"height": '5px'
+							}, 1000);
+						}
+						if(index == '3') {
+							$(".con3 h2").eq(0).removeClass("cc");
+							$(".con3 h3 img").stop().animate({
+								"width": '50px',
+								"height": '5px'
+							}, 1000);
+							$(".con3_dl dl").stop().animate({"opacity":'0',"top":'200px'},500);
+						}
+						if(index == '4') {
+							$(".con4 h2").eq(0).removeClass("cc");
+							$(".con4 h3").eq(0).removeClass("fc").css("color",'');
+							$(".con4_ul ul li:nth-child(even) img").stop().animate({"opacity":'0',"bottom":'60px'},1000);
+							$(".con4_ul li:nth-child(odd) img").stop().animate({"opacity":'0',"top":'60px'},1000);
+						}
+						if(index=='5'){
+						   $(".wid h2").removeClass("cc");
+						   
+						}
+						if (index=="6") {
+							$(".con6 h2").eq(0).removeClass("cc");
+							$(".cf li").stop().animate({"opacity":'0',"bottom":'300px'});
+						}
+						if (index=='7') {
+							$(".wid h2").addClass("cc");
+							$(".con7_ul li img").animate({"opacity":'0'},1000);
+						}
+						if (index=='8') {
+							$(".wid h2").removeClass("cc");
+							$(".wid h3").removeClass("fc");
+							$(".sec8 p").stop().animate({"font-size":'16px',"opacity":'0'},700);
+				
+						}
+						if(index=='9'){
+							$(".left").stop().animate({"left":'-700px'},1000);
+							$(".right").stop().animate({"left":'100%'},1000);
+						}
+					}
+				})
+				setInterval(function() {
+					$.fn.fullpage.moveSlideRight();
+				}, 4000);
+
+			})
+		</script>
+		<script type="text/javascript">
+		</script>
+		<style type="text/css">
+
+		</style>
+	</head>
+
+	<body>
+		<ul id="menu">
+			<li data-menuanchor="page1" class="active">
+				<a href="#page1"></a>
+			</li>
+			<li data-menuanchor="page2">
+				<a href="#page2"></a>
+			</li>
+			<li data-menuanchor="page3">
+				<a href="#page3"></a>
+			</li>
+			<li data-menuanchor="page4">
+				<a href="#page4"></a>
+			</li>
+			<li data-menuanchor="page5">
+				<a href="#page5"></a>
+			</li>
+			<li data-menuanchor="page6">
+				<a href="#page6"></a>
+			</li>
+			<li data-menuanchor="page7">
+				<a href="#page7"></a>
+			</li>
+			<li data-menuanchor="page8">
+				<a href="#page8"></a>
+			</li>
+			<li data-menuanchor="page9">
+				<a href="#page9"></a>
+			</li>
+		</ul>
+		<!--头部-->
+		<div class="header">
+			<div class="w">
+            	 <div class="logo"><a href="index.html"><img src="img/a_03.png" width="170" alt=""></a></div>
+                 <div class="nav">
+                    <ul id="navmenu" >
+                        <li data-menuanchor="page1" class="bt"><a href="#page1">首页</a></li>
+                        <li data-menuanchor="page2"><a href="#page2">服务</a></li>
+                        <li data-menuanchor="page3"><a href="#page3">案例</a></li>
+                        <li data-menuanchor="page4"><a href="#page4">客户</a></li>
+                        <li data-menuanchor="page5"><a href="#page5">优势 </a></li>
+                        <li data-menuanchor="page6" class=""><a href="#page6">流程</a></li>
+                        <li data-menuanchor="page7" class=""><a href="#page7">团队</a></li>
+						<li data-menuanchor="page8" class=""><a href="#page8">关于</a></li>
+                        <li data-menuanchor="page9" class="active"><a href="#page9">联系</a></li>
+                    </ul> 
+                </div>
+        	</div>        
+        </div>
+       
+		<div class="zixun">
+				<ul>
+					<li>
+						<img src="img/dianhua.png" />
+					</li>
+					<li>
+						<img src="img/shangtan.png" />
+					</li>
+					<li>
+						<img src="img/qie.png" />
+					</li>
+				</ul>
+			</div>
+		<div id="box">
+			<div class="section section1" data-anchor="page1">
+				<div class="slide lun1">
+				</div>
+				<div class="slide lun2">
+				</div>
+				<div class="slide lun3">
+				</div>
+				<div class="con1">
+					<div id="img">
+						<img src="img/a1.png" />
+						<img src="img/a2.png" style="opacity:0;" />
+						<img src="img/a4.png" style="opacity:0;" />
+					</div>
+				</div>
+			</div>
+			<div class="section section2" data-anchor="page2">
+
+				<div class="con2">
+					<div class="wid">
+						<h2>我们能做什么</h2>
+						<h3 class="w cf">
+							<img src="img/t2.png" alt=""/>
+						</h3>
+					</div>
+
+					<div class="con2_dl">
+						<dl>
+							<dt>
+								<img src="img/two01.png" alt=""/>
+							</dt>
+							<dd>
+								<h2>高端企业网站设计定制</h2> 网站策划 网站设计 网站制作 网站维护 域名注册 虚拟主机 应用软件定制开发
+							</dd>
+							<dd id="tblue"></dd>
+						</dl>
+						<dl>
+							<dt>
+								<img src="img/two02.png" alt=""/>
+							</dt>
+							<dd>
+								<h2>移动互联网建设</h2> 移动网站建设 手机网站建设 微信网站建设 WAP网站建设 APP定制开发
+							</dd>
+							<dd id="tblue"></dd>
+						</dl>
+						<dl>
+							<dt>
+								<img src="img/two03.png" alt=""/>
+							</dt>
+							<dd>
+								<h2>企业品牌形象设计</h2> 品牌定位 标志设计 VICI设计 画册设计 包装设计 导示设计 商标注册 物料印刷
+							</dd>
+							<dd id="tblue"></dd>
+						</dl>
+						<dl>
+							<dt>
+								<img src="img/two4.png" alt=""/>
+							</dt>
+							<dd>
+								<h2>新媒体营销</h2> 品牌推广 产品推广 活动推广 事件营销 口碑营销 微博营销 人物推广 影视推广
+							</dd>
+							<dd id="tblue"></dd>
+						</dl>
+					</div>
+				</div>
+			</div>
+			<div class="section section3" data-anchor="page3">
+				<div class="con3">
+					<div class="wid">
+						<h2>案例展示</h2>
+						<h3>
+							<img src="img/t3.png" alt=""/>
+						</h3>
+					</div>
+					<div class="con3_dl">
+						<dl>
+							<dt>
+							<img src="img/three01.jpg"/>
+							</dt>
+							<dd>
+								<span>网站建设</span><br/>
+								大华文化网站建设
+							</dd>
+							<div id="cblue"></div>
+							<div id="zz">
+								<img src="img/da_03.png"/>
+							</div>
+						</dl>
+						<dl><dt>
+							<img src="img/three02.jpg"/>
+						</dt>
+							<dd>
+								<span>网站建设</span><br />
+							中艺时美网站建设
+							</dd>
+							<div id="cblue"></div>
+							<div id="zz">
+								<img src="img/da_03.png"/>
+							</div>
+						</dl>
+						<dl><dt>
+							<img src="img/three03.jpg"/>
+						</dt>
+							<dd>
+								<span>网站建设</span><br />
+								城市名片网站建设
+							</dd>
+							<div id="cblue"></div>
+							<div id="zz">
+								<img src="img/da_03.png"/>
+							</div>
+						</dl>
+						<dl><dt>
+							<img src="img/three04.jpg"/>
+						</dt>
+						<dd>
+								<span>网站建设</span><br />
+								车爸爸网站建设
+							</dd>
+							<div id="cblue"></div>
+							<div id="zz">
+								<img src="img/da_03.png"/>
+							</div>
+						</dl>
+						<dl><dt>
+							<img src="img/three05.jpg"/>
+						</dt>
+							
+							<dd>
+								<span>网站建设</span><br />
+								东方之星移动端
+							</dd>
+							<div id="cblue"></div>
+							<div id="zz">
+								<img src="img/da_03.png"/>
+							</div>
+						</dl>
+						<dl><dt>
+							<img src="img/three06.jpg"/>
+						</dt>
+							<dd>
+								<span>网站建设</span><br />
+								东方网络网站建设
+							</dd>
+							<div id="cblue"></div>
+							<div id="zz">
+								<img src="img/da_03.png"/>
+							</div>
+						</dl>
+						<dl><dt>
+							<img src="img/three07.jpg"/>
+						</dt>
+							<dd>
+								<span>网站建设</span><br />
+								环球世界网站建设
+							</dd>
+							<div id="cblue"></div>
+							<div id="zz">
+								<img src="img/da_03.png"/>
+							</div>
+						</dl>
+						<dl><dt>
+							<img src="img/three08.jpg"/>
+						</dt>
+							<dd>
+								<span>品牌设计</span><br />
+								拜耳医药会议视觉设计
+
+							</dd>
+							<div id="cblue"></div>
+							<div id="zz">
+								<img src="img/da_03.png"/>
+							</div>
+						</dl>
+			
+					</div>
+				</div>
+			</div>
+			<div class="section section4" data-anchor="page4">
+				<div class="con4">
+					<div class="wid">
+						<h2>我们的客户</h2>
+						<h3>十度品牌已为上千家企业提供服务</h3>
+					</div>
+					<div class="con4_ul">
+						<ul>
+							<li>
+								<img src="img/pp01.jpg"/ alt="" class="pic1">
+								<img src="img/pp01.jpg"/ alt="" class="pic2">
+							</li>
+							<li>
+								<img src="img/pp02.jpg"/ alt="" class="pic1">
+								<img src="img/pp02.jpg"/ alt="" class="pic2">
+							</li>
+							<li>
+								<img src="img/pp03.jpg"/ alt="" class="pic1">
+								<img src="img/pp03.jpg"/ alt="" class="pic2">
+							</li>
+							<li>
+								<img src="img/pp04.jpg"/ alt="" class="pic1">
+								<img src="img/pp04.jpg"/ alt="" class="pic2">
+							</li>
+							<li>
+								<img src="img/pp05.jpg"/ alt="" class="pic1">
+								<img src="img/pp05.jpg"/ alt=""class="pic2">
+							</li>
+							<li>
+								<img src="img/pp06.jpg"/ alt="" class="pic1">
+								<img src="img/pp06.jpg"/ alt="" class="pic2">
+							</li>
+							<li>
+								<img src="img/pp07.jpg"/ alt="" class="pic1">
+								<img src="img/pp07.jpg"/ alt="" class="pic2">
+							</li>
+							<li>
+								<img src="img/pp08.jpg"/ alt="" class="pic1">
+								<img src="img/pp08.jpg"/ alt="" class="pic2">
+							</li>
+							<li>
+								<img src="img/pp09.jpg"/ alt="" class="pic1">
+								<img src="img/pp09.jpg"/ alt="" class="pic2">
+							</li>
+							<li>
+								<img src="img/pp10.jpg"/ alt="" class="pic1">
+								<img src="img/pp10.jpg"/ alt="" class="pic2">
+							</li>
+							<li>
+								<img src="img/pp11.jpg"/ alt="" class="pic1">
+								<img src="img/pp11.jpg"/ alt="" class="pic2">
+							</li>
+							<li>
+								<img src="img/pp12.jpg"/ alt="" class="pic1">
+								<img src="img/pp12.jpg"/ alt="" class="pic2">
+							</li>
+							<li>
+								<img src="img/pp13.jpg"/ alt="" class="pic1">
+								<img src="img/pp13.jpg"/ alt="" class="pic2">
+							</li>
+							<li>
+								<img src="img/pp14.jpg"/ alt="" class="pic1">
+								<img src="img/pp14.jpg"/ alt="" class="pic2">
+							</li>
+							<li>
+								<img src="img/pp15.jpg"/ alt="" class="pic1">
+								<img src="img/pp15.jpg"/ alt="" class="pic2">
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="section section5" data-anchor="page5">
+				<div class="con5">
+                	<div class="wid">
+						<h2>我们的优势</h2>
+					</div>
+					<div class="con5_ul">
+						<b>100%规范项目流程，100%保证满意为止。</b>
+						<span>一条龙服务，自主设计,独立研发,原创的设计界面。</span>
+						<p>有效的营销推广方案，整合全国3000多家<br>强大优质媒体资源。</p>
+						<img src="img/yuan.png" alt=""/>
+					</div>
+					<div id="mp4">
+						<video src="video/v.mp4" poster="img/bg_05.jpg" class="mp4" loop="loop"></video>
+					</div>
+				</div>
+			</div>
+			<div class="section section6" data-anchor="page6">
+				<div class="con6">
+					<div class="wid">
+						<h2>项目流程</h2>
+					</div>
+					<div class="con6_ul">
+						<ul class="cf">
+                    	<li class="i1">
+                        	<div class="w-wrap">
+                            	<span>沟通</span>
+                                <span>调研</span>
+                                <span>策划</span>
+                                <span class="last">沟通策划</span>
+                            </div>
+                        </li>
+                        <li class="i2">
+                        	<div class="w-wrap">
+                            	<span>域名申请</span>
+                                <span>主机申请</span>
+                                <span>邮箱申请</span>
+                                <span>ICP备案</span>
+                                <span class="last">基础服务</span>
+                            </div>
+                        </li>
+                        <li class="i3">
+                        	<div class="w-wrap">
+                            	<span>首页原型设计</span>
+                                <span>签收</span>
+                                <span>二级页原型设计</span>
+                                <span>三级页原型设计</span>
+                                <span>签收</span>
+                                <span class="last">原型服务</span>
+                            </div>
+                        </li>
+                        <li class="i4">
+                        	<div class="w-wrap">
+                            	<span>首页风格策划</span>
+                                <span>首页视觉设计</span>
+                                <span>签收</span>
+                                <span>子级页风格策划</span>
+                                <span>二级页视觉设计</span>
+                                <span>三级页视觉设计</span>
+                                <span>签收</span>
+                                <span class="last">视觉服务</span>
+                            </div>
+                        </li>
+                        <li class="i5">
+                        	<div class="w-wrap">
+                            	<span>动效设计</span>
+                                <span>交互设计</span>
+                                <span>SEO架构设计</span>
+                                <span>前端执行</span>
+                                <span>标准测试</span>
+                                <span>签收</span>
+                                <span class="last">前端执行</span>
+                            </div>
+                        </li>
+                        <li class="i6">
+                        	<div class="w-wrap">
+                            	<span>功能开发</span>
+                                <span>标准测试</span>
+                                <span>签收</span>
+                                <span>交付培训</span>
+                                <span>售后服务</span>
+                                <span class="last">交付培训</span>
+                            </div>
+                        </li>
+                    </ul>
+					</div>
+				</div>
+			</div>
+			<div class="section section7" data-anchor="page7">
+				<div class="con7">
+					<div class="wid">
+						<h2>十度团队</h2>
+					</div>
+					<div class="con7_ul">
+						<ul>
+							<li>
+								<img src="img/101.jpg" alt=""/>
+								<div >
+	                                    <p>十度团队</p>
+	                                    <b>创意指导-刘津昕</b>
+	                                    <span>“假艺术家，一个贩卖智慧的商人”</span>
+	                            </div>
+							</li>
+							<li>
+								<img src="img/102.jpg" alt=""/>
+								<div>
+	                                    <p>十度团队</p>
+	                                    <b>品牌咨询-刘福德</b>
+	                                    <span>“在互联网时代不断探索新商业模式”</span>
+	                            </div>
+							</li>
+							<li>
+								<img src="img/103.jpg" alt=""/>
+								<div>
+	                                    <p>十度团队</p>
+	                                    <b>品牌策划-王刚</b>
+	                                    <span>“在我这里只有需求，没有无法实现”</span>
+	                            </div>
+							</li>
+							<li>
+								<img src="img/104.jpg" alt=""/>
+								<div>
+	                                    <p>十度团队</p>
+	                                    <b>商务经理-张甲</b>
+	                                    <span>“我的成功，取决于出色的客户”</span>
+	                            </div>
+							</li>
+							<li value="1">
+								<img src="img/105.jpg" alt=""/>
+								<div class="f">
+	                                    <p>十度团队</p>
+	                                    <b>客户经理-张静芬</b>
+	                                    <span>“我认为伙伴，是给予我们最恰当的称谓”</span>
+	                            </div>
+							</li>
+							<li  value="1">
+								<img src="img/106.jpg" alt=""/>
+								<div class="f">
+	                                    <p>十度团队</p>
+	                                    <b>品牌推广-周鹏</b>
+	                                    <span>“商业设计实质上只是利用了艺术”</span>
+	                            </div>
+							</li>
+							<li>
+								<img src="img/107.jpg" alt=""/>
+								<div>
+	                                    <p>十度团队</p>
+	                                    <b>技术工程师-侯中华</b>
+	                                    <span>“未有不立志之人，便能做得事业”</span>
+	                                </div>
+							</li>
+							<li>
+								<img src="img/108.jpg" alt=""/>
+								<div>
+	                                    <p>十度团队</p>
+	                                    <b>UI设计师-李亚倩</b>
+	                                    <span>“人为生活而设计，设计为生活而存在”</span>
+	                                </div>
+							</li>
+							<li>
+								<img src="img/109.jpg" alt=""/>
+								<div>
+	                                    <p>十度团队</p>
+	                                    <b>技术工程师-孙岱</b>
+	                                    <span>“用汗水累积成长，用实干收获成功”</span>
+	                            </div>
+							</li>
+							<li>
+								<img src="img/110.jpg" alt=""/>
+								<div>
+	                                    <p>十度团队</p>
+	                                    <b>客户经理-孙晓阳</b>
+	                                    <span>“最有效的资本是我们的信誉，它24小时不停为我们工作。”</span>
+	                                </div>
+							</li>
+							<li   value="1">
+								<img src="img/111.jpg" alt=""/>
+								<div class="f">
+	                                   <p>十度团队</p>
+	                                   <b>设计师-曹文芳</b>
+	                                   <span>“与其临渊羡鱼转至，不如退而结网。”</span>
+	                               </div>
+							</li>
+							<li  value="1">
+								<img src="img/112.jpg" alt=""/>
+								<div class="f">
+	                                    <p>十度团队</p>
+	                                    <b>产品经理-肖慧峰</b>
+	                                    <span>“态度比现实更重要，效果比道理更重要。”</span>
+	                                </div>
+							</li>
+							<li>
+								<img src="img/113.jpg" alt=""/>
+								<div>
+	                                    <p>十度团队</p>
+	                                    <b>产品经理-张米米</b>
+	                                    <span>“客户带给我们他们的需要，我们的责任是满足他们的需求！”</span>
+	                                </div>
+							</li>
+							<li>
+								<img src="img/114.jpg" alt=""/>
+								<div>
+	                                    <p>十度团队</p>
+	                                    <b>技术工程师-赵博伟</b>
+	                                    <span>“精诚团结、积极进取、勇于创新”</span>
+	                                </div>
+							</li>
+							<li>
+								<img src="img/115.jpg" alt=""/>
+								<div>
+	                                   <p>十度团队</p>
+	                                   <b>设计师-曹文芳</b>
+	                                   <span>“与其临渊羡鱼转至，不如退而结网。”</span>
+	                               </div>
+							</li>
+							<li>
+								<img src="img/116.jpg" alt=""/>
+								<div>
+	                                    <p>十度团队</p>
+	                                    <b>营销总监-呈文</b>
+	                                    <span>“我们的价值=为客户创造的价值”</span>
+	                            </div>
+							</li>
+							<li  value="1">
+								<img src="img/117.jpg" alt=""/>
+								<div class="f">
+	                                   <p>十度团队</p>
+	                                   <b>美术指导-韩丽颖</b>
+	                                   <span>“情系创作，德系根本”</span>
+	                               </div>
+							</li>
+							<li  value="1">
+								<img src="img/118.jpg" alt=""/>
+								<div class="f">
+	                                    <p>十度团队</p>
+	                                    <b>前端工程师-罗燕芳</b>
+	                                    <span>“一份耕耘一份收获，机会垂青的是有准备的人。”</span>
+	                            </div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="section section8" data-anchor="page8">
+				<div class="con8">
+					<div class="wid">
+						<h2>关于我们</h2>
+						<h3>中国资深品牌网络营销公司<i></i></h3>
+					</div>
+					
+					<div class="sec8">
+	                    <p>十度从不认为自己是最好的，但却始终为一流的企业服务</p>
+	                    <p>北京十度创想科技有限公司成立于2006年，品牌源于专业，十度创想拥有从策略到设计、再到营销推广的完整产业链，我们的核心服务是通过科学有效的、国际化的设计和营销推广之道，协助企业成长。</p>
+	                    <p>十度创想十分珍视与客户的每次合作，我们本着“客户第一、服务第一”的原则，集丰富的专业知识和非凡的创意于一体，为<br>客户提供专业、满意的服务。</p>
+	                    <p>十度创想将通过不懈努力成为客户在互联网领域值得信任、有价值的长期合作伙伴!</p>
+                	</div>
+                	<div class="img">
+                		<img src="img/a_102.png" alt=""/>
+                		<img src="img/a_103.png" alt=""/>
+                		<img src="img/a_104.png" alt=""/>
+                	</div>
+                	<div class="sec82"><a href="lishi.html" target="_blank">十度历程</a></div>
+				</div>
+			</div>
+			<div class="section section9" data-anchor="page9">
+				<div class="con9">
+				<div class="con9_ul">
+					<div class="left">
+						<div class="sec91">
+							<img src="img/a_115.png" alt="">
+							<span></span>
+						</div>
+					</div>
+					<div class="right">
+						<div class="sec921">
+                            <span>北京十度创想科技有限公司</span>
+                            <p>
+                                   	北京总部地址：<br>北京市朝阳区百子湾路后现代城5A-1006室 
+                                <br>郑州事业部：<br>郑州市郑东新区千玺广场3206室 
+                                <br><br>
+                               	 电话：<b>4006-155-506</b>
+                                <br>网址：www.eshidu.com<br>
+                                E-mail:shidu@eshidu.com
+                            </p>
+                        </div>
+                        <div class="sec922">京ICP备09093801号&nbsp;&nbsp;&nbsp;&nbsp;全国免费咨询电话：4006-155-506    
+                            <br>24小时服务热线：<b>13683698009&nbsp;&nbsp;&nbsp;&nbsp;13611276790</b>
+                            <br>邮箱：shidu@eshidu.com&nbsp;&nbsp;&nbsp;&nbsp;QQ：1181998556&nbsp;&nbsp;&nbsp;&nbsp;2327180191&nbsp;&nbsp;&nbsp;&nbsp;2111245076
+                            <br>版权所有：北京十度创想科技有限公司
+                        </div>
+                        <div class="sec9220">京ICP备09093801号&nbsp;&nbsp;&nbsp;&nbsp;<br>全国免费咨询电话：4006-155-506    
+                            <br>24小时服务热线：<br><b>13683698009&nbsp;&nbsp;&nbsp;&nbsp;13611276790</b>
+                            <br>邮箱：shidu@eshidu.com&nbsp;&nbsp;&nbsp;&nbsp;<br>QQ：1181998556&nbsp;&nbsp;&nbsp;&nbsp;2327180191&nbsp;&nbsp;&nbsp;&nbsp;2111245076
+                            <br>版权所有：北京十度创想科技有限公司
+                        </div>
+					</div>
+				</div>
+				</div>
+			</div>
+			<div class="daohangleft">
+
+			</div>
+
+		</div>
+	</body>
+
+</html>
